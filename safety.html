@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Git basics</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Using bootstrap 5 framework-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- bootstrap JavaScript -->
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- jQuery used to load the navbar -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+<h1>Is Github safe?</h1>
+<p>Github has tools for securing accounts and controlling access, but safe habits still matter.</p>
+<h2>what makes github safe?</h2>
+<p>GitHub provides features such as authentication methods, repository visibility options, and access controls. These features help, but they cannot guarantee that every uploaded file, dependency, or collaborator is safe. You should still review what you publish, who has access, and whether your account is protected.</p>
+<h1>wyas to protect your work</h1>
+<ul>
+    <li>Use a unique password, of course, and use a password manager. Use two-factor authentication (2FA) or a supported passkey, and store recovery methods somewhere safe.</li>
+    <li>A public repo is visible to everyone. A private repo limits access to authorized people. You should check the visibility before publishing or inviting collaborators.</li>
+    <li>Give other people only the level of access they need and remove access when it is no longer needed. Be thoughtful about granting write or administrative access.</li>
+    <li>Do not commit passwords, access tokens, API keys, or private keys. Use environment variables and appropriate secret-management tools. A .gitignore can help prevent tracking untracked files.</li>
+</ul>
+
+<h2>Public vs private repositories</h2>
+<!--add the grid as in the ai code-->
+
+<h2>What to do if you accidentally upload a secret.</h2>
+<p>For example: your real API token appears in a commit</p>
+<p>You should first, revokeThen assess possible misuse and follow GitHub's documented process for handling sensitive repository history; this can involve coordinating with collaborators. Deleting the file in a later commit or turning the repository private does not automatically invalidate the exposed token or erase previous copies.</p>
+<p>before your next push make sure:</p>
+<ol>
+    <li>review which files changed.</li>
+    <li>didn't include real crednetials</li>
+    <li>check the repository visibility</li>
+    <li>only intended collaborators have access</li>
+</ol>
+
+<h2>read the official instructions</h2>
+<!--add cards or buttons here for the links to the instructions-->
+<!--add "test what you learned in realistic but fictional situations. " that links to the next page-->
+
+
+</body>
