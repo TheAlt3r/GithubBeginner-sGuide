@@ -1,19 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Git basics</title>
-
+  <title>Security challenge</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Using bootstrap 5 framework-->
+  <!-- Using Bootstrap 5 framework -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap JavaScript -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript for the responsive navbar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery used to load the navbar -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-
 <body>
-    
+  <!-- This loads the same navbar on every page -->
+  <div id="nav-placeholder"></div>
+
+  <main class="container pt-5 mt-4 pb-5">
+    <h1>GitHub security challenge</h1>
+    <p>Choose the safest answer for each fictional situation, then check your results.</p>
+
+    <form id="securityQuiz">
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">1. You accidentally push a real API token to GitHub. What should you do first?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="s1a" value="a" required><label class="form-check-label" for="s1a">Delete the file and assume the token is safe.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="s1b" value="b"><label class="form-check-label" for="s1b">Revoke or rotate the token right away.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="s1c" value="c"><label class="form-check-label" for="s1c">Change the repository name.</label></div>
+        </div>
+      </fieldset>
+
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">2. A classmate only needs to read your private project. What access should you give?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="s2a" value="a" required><label class="form-check-label" for="s2a">Admin access so they can see everything.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="s2b" value="b"><label class="form-check-label" for="s2b">Write access so they can change the code.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="s2c" value="c"><label class="form-check-label" for="s2c">Read-only access, when that option is available.</label></div>
+        </div>
+      </fieldset>
+
+      <button class="btn btn-primary" type="submit">Check answers</button>
+      <button class="btn btn-outline-secondary" type="reset">Try again</button>
+    </form>
+    <div id="securityResult" class="mt-3" role="status" aria-live="polite"></div>
+
+    <p class="mt-4"><a class="btn btn-outline-primary" href="quiz.html">Go to the final quiz &rarr;</a></p>
+
+  </main>
+
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("navbar.html #site-nav");
+    });
+  </script>
+  <!-- Simple JavaScript quiz: change the answers if you change the questions -->
+  <script>
+    const securityQuiz = document.getElementById("securityQuiz");
+    const securityResult = document.getElementById("securityResult");
+
+    securityQuiz.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const answers = new FormData(securityQuiz);
+      let score = 0;
+
+      if (answers.get("q1") === "b") score++;
+      if (answers.get("q2") === "c") score++;
+
+      securityResult.className = "alert alert-info mt-3";
+      securityResult.textContent =
+        "You scored " + score + " out of 2!\n\n" +
+        "1. If a real token leaks, revoke or rotate it first.\n" +
+        "2. Give collaborators only the permissions they need.";
+      securityResult.style.whiteSpace = "pre-line";
+    });
+
+    securityQuiz.addEventListener("reset", function () {
+      securityResult.textContent = "";
+      securityResult.className = "mt-3";
+    });
+  </script>
 </body>
+</html>

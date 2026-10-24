@@ -1,64 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Git basics</title>
-
+  <title>Git and GitHub basics</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Using bootstrap 5 framework-->
+  <!-- Using Bootstrap 5 framework -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap JavaScript -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript for the responsive navbar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery used to load the navbar -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
+
 <body>
-<h1>Beginner's guide to Git and Github</h1>
-<p>Welcome to your go to guide to understanding Git and Github</p>
-<!-- add short cuts for each header here: Git & Github | Guide to using Git with Github-->
+  <!-- This loads the same navbar on every page -->
+  <div id="nav-placeholder"></div>
+
+  <main class="container pt-5 mt-4 pb-5">
+    <h1>Beginner's guide to Git and GitHub</h1>
+    <p>Welcome to your go-to guide to understanding Git and GitHub.</p>
+
+    <!-- Shortcuts to each main section -->
+    <nav class="d-flex flex-wrap gap-2 my-4" aria-label="Page sections">
+      <a class="btn btn-outline-primary" href="#git-basics">Git & GitHub</a>
+      <a class="btn btn-outline-primary" href="#git-guide">Guide to using Git with GitHub</a>
+      <a class="btn btn-outline-primary" href="#common-mistakes">Common mistakes</a>
+    </nav>
 
 
-<h2>What are Git and Github</h2>
-<p><strong>Git: The tool</strong></p>
-<p>Git is a version control tool. It records snapshots fo changes to a project's files so that
-    you can track what changed, when you changed it, and return to an earlier version.
-</p>
+    <!-- section used for the top buttons to autoscroll down-->
+    <section id="git-basics" style="scroll-margin-top: 90px;">
+      <h2>What are Git and GitHub?</h2>
+      <p><strong>Git: The tool</strong></p>
+      <p>Git is a version control tool. It records snapshots of changes to a project's files so that
+        you can track what changed, when you changed it, and return to an earlier version.</p>
 
-<p><strong>GitHub: The website</strong></p>
-<p>GitHub is the website that hosts Git repositories online. You can share projects, collaborate,
-     and keep another copy on a remote repository.
-</p>
+      <p><strong>GitHub: The website</strong></p>
+      <p>GitHub is the website that hosts Git repositories online. You can share projects,
+        collaborate, and keep another copy in a remote repository.</p>
 
-<p><strong>Repository (repos)</strong></p>
-<p>A repository contains your project and its Git history. A 
-<span class="text-decoration-underline" title="stored in your computer.">
-    local
-</span>
-repository is on your computer, while a 
-<span class="text-decoration-underline" title="stored on another computer or server; like Github">
-    remote
-</span>
- one can be on GitHub.
-</p>
+      <p><strong>Repository (repos)</strong></p>
+      <!--the span for local and remote is used to have a short definition just in case there is misunderstanding on the vocab-->
+      <p>A repository contains your project and its Git history. A
+        <span title="A repository stored on your computer."><i>local</i></span>
+        repository is on your computer, while a
+        <span title="A repository on another computer or server, such as GitHub."><i>remote</i></span>
+        one can be on GitHub.</p>
 
+      <h3 class="h4 mt-4">From your computer to GitHub</h3>
+      <!-- Visual showing the Git workflow with little emoji's from https://emojipedia.org/most-popular-->
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-3 mb-4">
+        <div class="col"><div class="card h-100 text-center"><div class="card-body"><div class="fs-2" aria-hidden="true">✏️</div><strong>Edit</strong><p class="small mb-0">Change a file</p></div></div></div>
+        <div class="col"><div class="card h-100 text-center"><div class="card-body"><div class="fs-2" aria-hidden="true">👀</div><strong>Review</strong><p class="small mb-0">Check changes</p></div></div></div>
+        <div class="col"><div class="card h-100 text-center"><div class="card-body"><div class="fs-2" aria-hidden="true">💾</div><strong>Commit</strong><p class="small mb-0">Save to Git history</p></div></div></div>
+        <div class="col"><div class="card h-100 text-center"><div class="card-body"><div class="fs-2" aria-hidden="true">⬆️</div><strong>Push</strong><p class="small mb-0">Send commits online</p></div></div></div>
+        <div class="col"><div class="card h-100 text-center"><div class="card-body"><div class="fs-2" aria-hidden="true">🌐</div><strong>GitHub</strong><p class="small mb-0">View remote changes</p></div></div></div>
+      </div>
+    </section>
 
-<p><strong>From your computer to Github</strong></p>
-<!-- put icons here going from edit to push and stuff-->
-<p><strong>Commit and push, step by step</strong></p>
-<!--put card here following the steps giving-->
+    <section id="git-guide" style="scroll-margin-top: 90px;">
+      <h2>Commit and push, step by step</h2>
+      <p>These steps use <a href="https://desktop.github.com/download/" target="_blank"><strong>GitHub Desktop.</strong></a></p>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3 class="h5">Step 1: Create a repository</h3>
+        <p>Open GitHub Desktop and select <strong>File & New repository</strong>. Give it a name, choose where it will be saved on your computer, and create it.</p>
+        <div class="bg-light text-secondary border rounded p-3 mt-3 small">
+          Add your screenshot here: <strong>Creating a local repository in GitHub Desktop</strong>.<br>
+          <code>images/01-create-repository.png</code>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3 class="h5">Step 2: Edit a file</h3>
+        <p>Open your project folder in an editor such as VS Code. Make a small change to a file, then save it.</p>
+        <div class="bg-light text-secondary border rounded p-3 mt-3 small">
+          Add your screenshot here: <strong>Editing a project file</strong>.<br>
+          <code>images/02-edit-file.png</code>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3 class="h5">Step 3: Review the changes</h3>
+        <p>Go back to GitHub Desktop and click the <strong>Changes</strong> tab. Review the changed files and select the ones you want to include in your commit. Do not include passwords or private keys.</p>
+        <div class="bg-light text-secondary border rounded p-3 mt-3 small">
+          Add your screenshot here: <strong>Reviewing changed files in GitHub Desktop</strong>.<br>
+          <code>images/03-review-changes.png</code>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3 class="h5">Step 4: Commit your changes</h3>
+        <p>Type a short message in the <strong>Summary</strong> box explaining what you changed. Then click <strong>Commit to main</strong> (or the name of your current branch). The commit is saved locally.</p>
+        <div class="bg-light text-secondary border rounded p-3 mt-3 small">
+          Add your screenshot here: <strong>Writing a commit message</strong>.<br>
+          <code>images/04-commit.png</code>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3 class="h5">Step 5: Publish or push</h3>
+        <p>For a new local repository, click <strong>Publish repository</strong> to put it on GitHub, and check its visibility first. For later commits, click <strong>Push origin</strong> to send your new commits to GitHub.</p>
+        <div class="bg-light text-secondary border rounded p-3 mt-3 small">
+          Add your screenshot here: <strong>The Publish repository or Push origin button</strong>.<br>
+          <code>images/05-push.png</code>
+        </div>
+      </div>
+    </div>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h3 class="h5">Step 6: Check your GitHub repository</h3>
+        <p>Open your repository on GitHub.com. Look for your updated files and commit history to make sure the changes arrived.</p>
+        <div class="bg-light text-secondary border rounded p-3 mt-3 small">
+          Add your screenshot here: <strong>Checking the updated repository on GitHub</strong>.<br>
+          <code>images/06-verify.png</code>
+        </div>
+      </div>
+    </div>
+    </section>
 
-<p><strong>mistakes beginners often run into</strong></p>
-<!--2x2 cards showing the mistakes-->
+    <section id="common-mistakes" style="scroll-margin-top: 90px;">
+      <h2 class="mt-5">Mistakes beginners often run into</h2>
+      <!-- 2 by 2 grid on medium and larger screens -->
+      <div class="row row-cols-1 row-cols-md-2 g-3">
+        <div class="col"><div class="card h-100"><div class="card-body"><h3 class="h5">Forgot to push</h3><p>You committed your work, but nothing changed on GitHub.</p><p class="mb-0"><strong>Fix:</strong> Check GitHub Desktop for <em>Push origin</em> and push your commits.</p></div></div></div>
+        <div class="col"><div class="card h-100"><div class="card-body"><h3 class="h5">Changes do not appear</h3><p>You edited a file, but GitHub Desktop does not show it.</p><p class="mb-0"><strong>Fix:</strong> Save the file and check that you opened the correct repository and branch.</p></div></div></div>
+        <div class="col"><div class="card h-100"><div class="card-body"><h3 class="h5">Accidentally included a secret</h3><p>A password or token was added to a commit.</p><p class="mb-0"><strong>Fix:</strong> If you pushed a real secret, immediately revoke or rotate it. Read the <a href="safety.html">security guide</a> for next steps.</p></div></div></div>
+        <div class="col"><div class="card h-100"><div class="card-body"><h3 class="h5">Push was rejected</h3><p>GitHub may have changes that your local branch does not have yet.</p><p class="mb-0"><strong>Fix:</strong> Fetch and pull the latest changes, review any conflicts, and then try pushing again.</p></div></div></div>
+      </div>
+    </section>
 
-<!--put botton here saying you have learn the basics, and to have a button that takes you to the next page-->
+    <!-- Next-page button -->
+    <div class="text-center mt-5 p-4 bg-light border rounded">
+      <h2 class="h4">You've learned the basics!</h2>
+      <p>Next, learn how to protect your account and repositories.</p>
+      <a class="btn btn-primary" href="safety.html">Next: Staying safe &</a>
+    </div>
 
+  </main>
 
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("navbar.html #site-nav");
+    });
+  </script>
 </body>
-
-
-
-
-
-
+</html>

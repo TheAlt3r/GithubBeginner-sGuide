@@ -1,21 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Git basics</title>
-
+  <title>GitHub quiz and resources</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Using bootstrap 5 framework-->
+  <!-- Using Bootstrap 5 framework -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap JavaScript -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript for the responsive navbar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery used to load the navbar -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-
 <body>
+  <!-- This loads the same navbar on every page -->
+  <div id="nav-placeholder"></div>
 
+  <main class="container pt-5 mt-4 pb-5">
+    <h1>Git and GitHub quiz</h1>
+    <p>Check what you've learned about Git, commits, pushes, and keeping your projects safe.</p>
 
-    
+    <form id="finalQuiz">
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">1. What is Git?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1a" value="a" required><label class="form-check-label" for="q1a">The GitHub website.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1b" value="b"><label class="form-check-label" for="q1b">A tool that tracks file changes.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q1" id="q1c" value="c"><label class="form-check-label" for="q1c">A programming language.</label></div>
+        </div>
+      </fieldset>
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">2. What happens when you commit changes?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2a" value="a" required><label class="form-check-label" for="q2a">They are recorded in your local Git history.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2b" value="b"><label class="form-check-label" for="q2b">They are immediately posted to GitHub.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q2" id="q2c" value="c"><label class="form-check-label" for="q2c">All previous versions are deleted.</label></div>
+        </div>
+      </fieldset>
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">3. What does pushing a commit do?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3a" value="a" required><label class="form-check-label" for="q3a">Only saves the file in your editor.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3b" value="b"><label class="form-check-label" for="q3b">Creates a new password.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q3" id="q3c" value="c"><label class="form-check-label" for="q3c">Sends your local commits to a remote repository.</label></div>
+        </div>
+      </fieldset>
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">4. Which habit helps keep your repository safe?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4a" value="a" required><label class="form-check-label" for="q4a">Include API tokens in your code.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4b" value="b"><label class="form-check-label" for="q4b">Review changed files before committing and pushing.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q4" id="q4c" value="c"><label class="form-check-label" for="q4c">Give every collaborator admin access.</label></div>
+        </div>
+      </fieldset>
+      <fieldset class="card mb-3">
+        <legend class="h5 px-3 pt-3">5. Why should you use two-factor authentication (2FA)?</legend>
+        <div class="card-body pt-0">
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5a" value="a" required><label class="form-check-label" for="q5a">It adds another check when signing in.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5b" value="b"><label class="form-check-label" for="q5b">It makes all repositories private.</label></div>
+          <div class="form-check"><input class="form-check-input" type="radio" name="q5" id="q5c" value="c"><label class="form-check-label" for="q5c">It automatically fixes unsafe code.</label></div>
+        </div>
+      </fieldset>
+      <button class="btn btn-primary" type="submit">Check answers</button>
+      <button class="btn btn-outline-secondary" type="reset">Try again</button>
+    </form>
+    <div id="quizResult" class="mt-3" role="status" aria-live="polite"></div>
+
+    <h2 class="mt-5">Extra resources</h2>
+    <p>These official GitHub guides can help you review anything you missed.</p>
+    <ul>
+      <li><a href="https://docs.github.com/en/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop" target="_blank" rel="noopener noreferrer">Committing and reviewing changes in GitHub Desktop</a></li>
+      <li><a href="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa" target="_blank" rel="noopener noreferrer">Protecting an account with 2FA</a></li>
+      <li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility" target="_blank" rel="noopener noreferrer">Setting repository visibility</a></li>
+      <li><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository" target="_blank" rel="noopener noreferrer">Removing sensitive data from a repository</a></li>
+    </ul>
+    <a class="btn btn-outline-primary" href="index.html">Back to the basics</a>
+
+  </main>
+
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("navbar.html #site-nav");
+    });
+  </script>
+  <!-- Simple JavaScript final quiz -->
+  <script>
+    const finalQuiz = document.getElementById("finalQuiz");
+    const quizResult = document.getElementById("quizResult");
+
+    finalQuiz.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const answers = new FormData(finalQuiz);
+      let score = 0;
+
+      if (answers.get("q1") === "b") score++;
+      if (answers.get("q2") === "a") score++;
+      if (answers.get("q3") === "c") score++;
+      if (answers.get("q4") === "b") score++;
+      if (answers.get("q5") === "a") score++;
+
+      quizResult.className = "alert alert-info mt-3";
+      quizResult.textContent =
+        "You scored " + score + " out of 5!\n\n" +
+        "1. Git tracks versions of files.\n" +
+        "2. Commit records changes locally.\n" +
+        "3. Push sends commits to the remote repository.\n" +
+        "4. Review your files before uploading them.\n" +
+        "5. 2FA adds another sign-in security check.";
+      quizResult.style.whiteSpace = "pre-line";
+    });
+
+    finalQuiz.addEventListener("reset", function () {
+      quizResult.textContent = "";
+      quizResult.className = "mt-3";
+    });
+  </script>
 </body>
+</html>

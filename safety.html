@@ -1,49 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <title>Git basics</title>
-
+  <title>Staying safe on GitHub</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- Using bootstrap 5 framework-->
+  <!-- Using Bootstrap 5 framework -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- bootstrap JavaScript -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap JavaScript for the responsive navbar -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- jQuery used to load the navbar -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
-
 <body>
-<h1>Is Github safe?</h1>
-<p>Github has tools for securing accounts and controlling access, but safe habits still matter.</p>
-<h2>what makes github safe?</h2>
-<p>GitHub provides features such as authentication methods, repository visibility options, and access controls. These features help, but they cannot guarantee that every uploaded file, dependency, or collaborator is safe. You should still review what you publish, who has access, and whether your account is protected.</p>
-<h1>wyas to protect your work</h1>
-<ul>
-    <li>Use a unique password, of course, and use a password manager. Use two-factor authentication (2FA) or a supported passkey, and store recovery methods somewhere safe.</li>
-    <li>A public repo is visible to everyone. A private repo limits access to authorized people. You should check the visibility before publishing or inviting collaborators.</li>
-    <li>Give other people only the level of access they need and remove access when it is no longer needed. Be thoughtful about granting write or administrative access.</li>
-    <li>Do not commit passwords, access tokens, API keys, or private keys. Use environment variables and appropriate secret-management tools. A .gitignore can help prevent tracking untracked files.</li>
-</ul>
+  <!-- This loads the same navbar on every page -->
+  <div id="nav-placeholder"></div>
 
-<h2>Public vs private repositories</h2>
-<!--add the grid as in the ai code-->
+  <main class="container pt-5 mt-4 pb-5">
+    <h1>Is GitHub safe?</h1>
+    <p>GitHub has tools for securing accounts and controlling access, but safe habits still matter.</p>
 
-<h2>What to do if you accidentally upload a secret.</h2>
-<p>For example: your real API token appears in a commit</p>
-<p>You should first, revokeThen assess possible misuse and follow GitHub's documented process for handling sensitive repository history; this can involve coordinating with collaborators. Deleting the file in a later commit or turning the repository private does not automatically invalidate the exposed token or erase previous copies.</p>
-<p>before your next push make sure:</p>
-<ol>
-    <li>review which files changed.</li>
-    <li>didn't include real crednetials</li>
-    <li>check the repository visibility</li>
-    <li>only intended collaborators have access</li>
-</ol>
+    <h2>What makes GitHub safe?</h2>
+    <p>GitHub provides features such as authentication methods, repository visibility options, and access controls. These features help, but they cannot guarantee that every uploaded file, dependency, or collaborator is safe. You should still review what you publish, who has access, and whether your account is protected.</p>
 
-<h2>read the official instructions</h2>
-<!--add cards or buttons here for the links to the instructions-->
-<!--add "test what you learned in realistic but fictional situations. " that links to the next page-->
+    <h2>Ways to protect your work</h2>
+    <ul>
+      <li>Use a unique password and a password manager. Use two-factor authentication (2FA) or a supported passkey, and store recovery methods somewhere safe.</li>
+      <li>A public repo is visible to everyone. A private repo limits access to authorized people. Check the visibility before publishing or inviting collaborators.</li>
+      <li>Give other people only the level of access they need and remove access when it is no longer needed. Be thoughtful about granting write or administrative access.</li>
+      <li>Do not commit passwords, access tokens, API keys, or private keys. Use environment variables and appropriate secret-management tools. A <code>.gitignore</code> file helps exclude <em>untracked</em> files, but it does not remove files already tracked by Git.</li>
+    </ul>
 
+    <h2>Public vs. private repositories</h2>
+    <!-- Two-column Bootstrap grid from your comment -->
+    <div class="row row-cols-1 row-cols-md-2 g-3 mb-4">
+      <div class="col">
+        <div class="card h-100 border-primary">
+          <div class="card-body">
+            <h3 class="h5">Public repository</h3>
+            <p>Anyone can view the code, and others may be able to copy or fork it. Good for projects you want to share openly.</p>
+            <p class="mb-0"><strong>Remember:</strong> Never publish passwords, tokens, or other private information.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card h-100 border-secondary">
+          <div class="card-body">
+            <h3 class="h5">Private repository</h3>
+            <p>Only you and people with permission can view it through GitHub. Good for projects you do not want to share publicly.</p>
+            <p class="mb-0"><strong>Remember:</strong> People you grant access to can still copy files, so only invite people you trust.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <h2>What to do if you accidentally upload a secret</h2>
+    <p>For example: your real API token appears in a commit.</p>
+    <p>You should first <strong>revoke or rotate the token</strong> so it can no longer be used. Then assess possible misuse and follow GitHub's documented process for handling sensitive repository history; this can involve coordinating with collaborators. Deleting the file in a later commit or making the repository private does not automatically invalidate the exposed token or erase previous copies.</p>
+    <p>Before your next push, make sure you:</p>
+    <ol>
+      <li>Review which files changed.</li>
+      <li>Did not include real credentials.</li>
+      <li>Check the repository visibility.</li>
+      <li>Only give intended collaborators access.</li>
+    </ol>
+
+    <h2>Read the official instructions</h2>
+    <!-- Link cards from your comment -->
+    <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+      <div class="col"><div class="card h-100"><div class="card-body">
+        <h3 class="h5">Protect your account</h3><p>GitHub's guide to two-factor authentication.</p>
+        <a class="btn btn-outline-primary" href="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa" target="_blank" rel="noopener noreferrer">Read guide</a>
+      </div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-body">
+        <h3 class="h5">Repository visibility</h3><p>Learn how public and private settings work.</p>
+        <a class="btn btn-outline-primary" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility" target="_blank" rel="noopener noreferrer">Read guide</a>
+      </div></div></div>
+      <div class="col"><div class="card h-100"><div class="card-body">
+        <h3 class="h5">Exposed secrets</h3><p>What to do when sensitive data reaches Git history.</p>
+        <a class="btn btn-outline-primary" href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository" target="_blank" rel="noopener noreferrer">Read guide</a>
+      </div></div></div>
+    </div>
+
+    <!-- Link to the next page from your comment -->
+    <div class="p-4 bg-light border rounded text-center">
+      <p>Test what you've learned in realistic but fictional situations.</p>
+      <a href="security.html" class="btn btn-primary">Try the security challenge &rarr;</a>
+    </div>
+
+  </main>
+
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("navbar.html #site-nav");
+    });
+  </script>
 </body>
+</html>
